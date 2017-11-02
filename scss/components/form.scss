@@ -1,0 +1,121 @@
+.chat-interact {
+  .dialog__header {
+    @include prefix(display, flex);
+    @include prefix(justify-content, space-between);
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+
+    h3 {
+      padding: 1rem;
+      line-height: 1.25rem;
+      color: $white;
+      opacity: 0.3;
+    }
+    a {
+      display: inline-block;
+      padding: 1rem;
+      color: $white;
+      font-size: 2rem;
+      line-height: 1.25rem;
+    }
+  }
+  .dialog__footer {
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+
+  .conversation {
+    max-width: 40rem;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 0;
+
+    // @include prefix(display, flex);
+    // @include prefix(flex-direction, column);
+    @include prefix(flex, 1 1 auto);
+    @include prefix(justify-content, flex-end);
+    overflow-y: auto;
+
+    [type="submit"] {
+      max-width: 120px;
+      @include prefix(transition, all 0.2s ease);
+    }
+
+    &.isSending {
+      .field {
+        pointer-events: none;
+        background: transparent;
+      }
+      [type="submit"] {
+        position: relative;
+        max-width: 30px;
+        padding-left: 14px;
+        padding-right: 14px;
+        overflow: hidden;
+        font-size: 0;
+        background: none;
+        border-color: $greylight;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('../images/spinner.gif');
+          background-size: 100%;
+        }
+      }
+    }
+    &.isSuccess {
+      .field {
+        pointer-events: none;
+        background: transparent;
+      }
+      [type="submit"] {
+        display: none;
+      }
+    }
+  }
+
+  .bubble-wrap {
+    max-height: 0;
+    padding: 0.25rem 2rem 0.25rem 1rem;
+    overflow: hidden;
+
+    &.bubble-wrap--right {
+      padding-right: 1rem;
+      padding-left: 2rem;
+      text-align: right;
+    }
+    &.isLoaded {
+      max-height: 40rem;
+       
+      .bubble {
+        @include prefix(transform, translateY(0));
+
+        .bubble__loader {
+          opacity: 0;
+          max-width: 0;
+          max-height: 0;
+        }
+        .bubble__content {
+          max-width: 40rem;
+          max-height: 10rem;
+        }
+      }
+    }
+    @media screen and (min-width: $vp_tablet) {
+      padding: 0.5rem 5rem 0.5rem 1rem;
+
+      &.bubble-wrap--right {
+        padding: 0.5rem 1rem 0.5rem 5rem;
+      }
+    }
+  }
+}

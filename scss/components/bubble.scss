@@ -1,0 +1,84 @@
+.bubble {
+  position: relative;
+  display: inline-block;
+  min-width: 3rem;
+  min-height: 2rem;
+  padding: 0 1rem;
+  background-color: $greylighter;
+  @include prefix(border-radius, 1rem);
+  color: $bluedark;
+  line-height: 1rem;
+
+  @include prefix(transform, translateY(3rem));
+  @include prefix(transition, all 0.3s ease-in-out);
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: calc(100% - 1rem);
+    border: 0.75rem solid transparent;
+    border-right-color: $greylighter;
+    border-bottom-color: $greylighter;
+  }
+  &.bubble--white {
+    padding: 1rem;
+    width: 100%;
+    background-color: $white;
+    color: $bluedark;
+
+    &:before {
+      right: auto;
+      left: calc(100% - 1rem);
+      border-right-color: transparent;
+      border-left-color: $white;
+      border-bottom-color: $white;
+    }
+  }
+  
+  .bubble__loader {
+    position: absolute;
+    opacity: 1;
+    max-width: 5rem;
+    max-height: 5rem;
+    padding: 0.5rem 0;
+    @include prefix(transition, all 0.5s ease-in-out);
+    @include prefix(transition-delay, 0.5s);
+  }
+  .bubble__content {
+    padding: 0.5rem 0;
+    max-width: 0;
+    max-height: 0;
+    @include prefix(transition, all 1s ease-in-out);
+    @include prefix(transition-delay, 0.5s);
+    overflow: hidden;
+  }
+
+  textarea {
+    min-height: 4rem;
+  }
+  .field {
+    width: 100%;
+    min-width: 12rem;
+    margin-bottom: 0.5rem;
+    padding: calc(0.5rem - 2px);
+    border: 2px solid transparent;
+    // border-bottom: 0.125rem solid rgba($bluedark, 0.5);
+    background: lighten($greylighter, 2%);
+    color: $bluedark;
+    @include prefix(border-radius, 0.25rem);
+    font: inherit;
+    resize: none;
+    &:hover {
+      outline: none;
+      background: $greylighter;
+    }
+    &:focus {
+      outline: none;
+      background: darken($greylighter, 3%);
+    }
+    &.hasError {
+      border-color: $blue;
+    }
+  }
+}
