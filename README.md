@@ -12,6 +12,7 @@ Feel free to ask me any questions through my dog-fed [Chat Interact contact form
 
 ### Donate
 Enjoy it? Feel free to buy me a double espresso :coffee:
+
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/ldanielswakman/2.5eur)
 
 ___
