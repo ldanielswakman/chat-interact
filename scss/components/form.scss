@@ -8,17 +8,22 @@
     margin-bottom: 1rem;
 
     h3 {
+      margin: 0;
       padding: 1rem;
       line-height: 1.25rem;
-      color: $white;
-      opacity: 0.3;
+      font-weight: normal;
+      color: $greylight;
     }
     a {
       display: inline-block;
       padding: 1rem;
-      color: $white;
+      color: $greylight;
       font-size: 2rem;
       line-height: 1.25rem;
+
+      &:hover {
+        color: $blue;
+      }
     }
   }
   .dialog__footer {
@@ -104,10 +109,10 @@
           max-width: 0;
           max-height: 0;
         }
-        .bubble__content {
-          max-width: 40rem;
-          max-height: 10rem;
-        }
+        // .bubble__content {
+        //   max-width: 40rem;
+        //   max-height: 10rem;
+        // }
       }
     }
     @media screen and (min-width: $vp_tablet) {

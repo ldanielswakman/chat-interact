@@ -1,7 +1,7 @@
 .bubble {
   position: relative;
   display: inline-block;
-  min-width: 3rem;
+  min-width: 4rem;
   min-height: 2rem;
   padding: 0 1rem;
   background-color: $greylighter;
@@ -25,6 +25,7 @@
     padding: 1rem;
     width: 100%;
     background-color: $white;
+    @include prefix(box-shadow, 0 0 1rem rgba($black, 0.05));
     color: $bluedark;
 
     &:before {
@@ -42,16 +43,25 @@
     max-width: 5rem;
     max-height: 5rem;
     padding: 0.5rem 0;
-    @include prefix(transition, all 0.5s ease-in-out);
-    @include prefix(transition-delay, 0.5s);
+    @include prefix(transition, all 0.3s ease-in-out);
+    @include prefix(transition-delay, 0.3s);
   }
   .bubble__content {
     padding: 0.5rem 0;
-    max-width: 0;
-    max-height: 0;
-    @include prefix(transition, all 1s ease-in-out);
-    @include prefix(transition-delay, 0.5s);
-    overflow: hidden;
+    // max-width: 0;
+    // max-height: 0;
+    // @include prefix(transition, all 1s ease-in-out);
+    // @include prefix(transition-delay, 0.5s);
+    // overflow: hidden;
+  }
+
+  .typed-cursor {
+    color: #0036ff;
+    @include prefix(transition, all 0.2s ease-in-out);
+
+    &.isHidden {
+      opacity: 0;
+    }
   }
 
   textarea {
